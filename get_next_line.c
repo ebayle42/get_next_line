@@ -6,7 +6,15 @@
 /*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/30 10:48:48 by ebayle            #+#    #+#             */
-/*   Updated: 2026/10/30 10:48:48 by ebayle           ###   ########.fr       */
+/*   Updated: 2026/10/30 11:01:51 by ebayle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "get_next_line.h"
+
+char *get_next_line(int fd)
+{
+	char	*line;
+	
+	return (line);
+}

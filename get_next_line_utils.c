@@ -6,7 +6,7 @@
 /*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/30 10:49:36 by ebayle            #+#    #+#             */
-/*   Updated: 2026/11/03 14:16:35 by ebayle           ###   ########.fr       */
+/*   Updated: 2026/11/04 15:28:20 by ebayle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,34 +69,4 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 	dst[j] = '\0';
 	return (len);
-}
-char	*ft_strchr(const char *s, int c)
-{
-	int		i;
-	char	*occ;
-
-	occ = (char *)s;
-	i = 0;
-	while (occ[i] != '\0' && occ[i] != (char) c)
-		i++;
-	if (occ[i] == (char)c)
-		return (&occ[i]);
-	return (NULL);
-}
-char	*ft_strtrim(char const *s1, char const *set)
-{
-	size_t	i;
-	size_t	o;
-	char	*res;
-
-	if (!s1 || !set)
-		return (NULL);
-	i = 0;
-	o = ft_strlen(s1);
-	while (s1[i] && ft_strchr(set, s1[i]))
-		i++;
-	while (o > i && ft_strchr(set, s1[o - 1]))
-		o--;
-	res = ft_substr(s1, i, o - i);
-	return (res);
 }

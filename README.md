@@ -6,33 +6,27 @@
 
 get_next_line, reading a line from a file descriptor is way too tedious.
 
-The goal is about programming a function that returns a line read from a file descriptor
+The goal is about programming a function that returns a line read from a file descriptor until it achieve the end of the file
 
-`get_next_line.c` : 
-`get_next_line.h` : 
-`get_next_line_utils.c` : 
+`get_next_line.c` : this is the main file of the project where `get_next_line_reading()`, `get_next_line_size()` and `get_next_line()` are 
+`get_next_line.h` : this where all the syntx of all functions are
+- ` ` :
+- ` ` :
+- ` ` :
+- ` ` :
+- ` ` :
+- ` ` :
+`get_next_line_utils.c` : that's where principal functions of the project are hold
+- ` ` :
+- ` ` :
+- ` ` :
+- ` ` :
 
 ## Instructions
 
-Compile:
-
+Compile 
 ```sh
-make        # builds libft.a
-```
-```sh
-make clean  # removes object files
-```
-```sh
-make fclean # removes object files and libft.a
-```
-```sh
-make re     # fclean + all
-```
-
-Use it in a project:
-
-```sh
-cc -Wall -Wextra -Werror -D BUFFER_SIZE=256 get_next_line.c -L. -lft -I. -o program
+cc -Wall -Wextra -Werror get_next_line.c get_next_line.h get_next_line_utils.c  
 ```
 
 ## Resources

@@ -6,7 +6,7 @@
 /*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/30 10:49:36 by ebayle            #+#    #+#             */
-/*   Updated: 2026/11/05 15:07:13 by ebayle           ###   ########.fr       */
+/*   Updated: 2026/11/05 17:47:03 by ebayle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@ size_t	ft_strlen(const char *str)
 	size_t	len;
 
 	len = 0;
+	if (str == NULL)
+		return (0);
 	while (str[len] != '\0')
 		len++;
 	return (len);
 }
-char	*ft_strjoin(char const *s1, char const *s2)
+
+char	*ft_strjoin(char *s1, char const *s2)
 {
 	int		i;
 	int		o;
@@ -29,25 +32,26 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	o = 0;
-	if (s1 == 0 || s2 == 0)
+	if (s2 == 0)
 		return (NULL);
 	reponse = malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2)) + 1));
 	if (!reponse)
+	{
+		free (s1);
 		return (NULL);
-	while (s1[i] != '\0')
+	}
+	while (s1 && s1[i] != '\0')
 	{
 		reponse[i] = s1[i];
 		i++;
 	}
 	while (s2[o] != '\0')
-	{
-		reponse[i] = s2[o];
-		o++;
-		i++;
-	}
+		reponse[i++] = s2[o++];
 	reponse[i] = '\0';
+	free(s1);
 	return (reponse);
 }
+
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	char	*s;
@@ -70,23 +74,19 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	dst[j] = '\0';
 	return (len);
 }
-char	*get_next_line_read(char *buffer, char *tmp)
+
+char	*ft_strchr(const char *s, int c)
 {
-	char	*result;
 	int		i;
-	
+	char	*occ;
+
+	if (!s)
+		return (NULL);
+	occ = (char *)s;
 	i = 0;
-	while (buffer[i])
-	{
-		if (buffer[i] == '\n')
-		{
-			i++;
-			tmp[i] = buffer[i];
-			result = ft_strlcpy(result, tmp, sizeof(tmp));
-			return (result);
-		}
-		tmp[i] = buffer[i];
+	while (occ[i] != '\0' && occ[i] != (char) c)
 		i++;
-	}
-	return (result);
+	if (occ[i] == (char)c)
+		return (&occ[i]);
+	return (NULL);
 }

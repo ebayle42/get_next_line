@@ -6,7 +6,7 @@
 /*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/30 10:49:36 by ebayle            #+#    #+#             */
-/*   Updated: 2026/11/04 15:28:20 by ebayle           ###   ########.fr       */
+/*   Updated: 2026/11/05 14:09:02 by ebayle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,47 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 	dst[j] = '\0';
 	return (len);
+}
+int		get_next_line_size(char *buffer)
+{
+	int	i;
+
+	i = 0;
+	while (buffer[i])
+	{
+		if (buffer[i] == '\0')
+			return (i);
+		if (buffer[i] == '\n')
+			return (i);
+		i++;
+	}
+	return (i);
+}
+char	*get_next_line_reading(char *buffer)
+{
+	int		i;
+	char	*stock;
+	
+	if (!buffer)
+		return (NULL);
+	i = 0;
+	stock = malloc(sizeof(char) * (get_next_line_size(buffer) + 1));
+	if (!stock)
+		return (NULL);
+	while(buffer[i])
+	{
+		if (buffer[i] == '\0')
+		{
+			stock[i] = '\0';
+			return (stock);
+		}
+		if (buffer[i] == '\n')
+		{
+			stock[i] = '\n';
+			return (stock);
+		}
+		stock[i] = buffer[i];
+		i++;
+	}
+	return (stock);
 }

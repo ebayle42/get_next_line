@@ -6,7 +6,7 @@
 /*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/30 10:49:36 by ebayle            #+#    #+#             */
-/*   Updated: 2026/11/05 14:20:46 by ebayle           ###   ########.fr       */
+/*   Updated: 2026/11/05 14:24:55 by ebayle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,6 @@ char	*get_next_line_reading(char *buffer)
 	int		i;
 	char	*stock;
 	
-	if (!buffer)
-		return (NULL);
 	i = 0;
 	stock = malloc(sizeof(char) * (get_next_line_size(buffer) + 1));
 	if (!stock)

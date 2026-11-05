@@ -8,19 +8,6 @@ get_next_line, reading a line from a file descriptor is way too tedious.
 
 The goal is about programming a function that returns a line read from a file descriptor until it achieve the end of the file
 
-`get_next_line.c` : this is the main file of the project where `get_next_line_reading()`, `get_next_line_size()` and `get_next_line()` are 
-`get_next_line.h` : this where all the syntx of all functions are
-- ` ` :
-- ` ` :
-- ` ` :
-- ` ` :
-- ` ` :
-- ` ` :
-`get_next_line_utils.c` : that's where principal functions of the project are hold
-- ` ` :
-- ` ` :
-- ` ` :
-- ` ` :
 
 ## Instructions
 

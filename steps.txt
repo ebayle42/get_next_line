@@ -1,7 +1,17 @@
-Step	What happens
-1	read() fills a buffer with up to BUFFER_SIZE bytes from the file descriptor.
+Step for get_next_line
+
+1	read() fills a buffer with up to BUFFER_SIZE bytes
+	from the file descriptor.
+
 2	The buffer is appended to a static stash that survives between calls.
-3	Steps 1 and 2 repeat until the stash contains a \n or read() reaches the end of the file.
-4	The line, up to and including the \n, is extracted from the stash and returned.
+
+3	Steps 1 and 2 repeat until the stash contains a \n or read() 
+	reaches the end of the file.
+
+4	The line, up to and including the \n, is extracted from 
+	the stash and returned.
+
 5	Whatever comes after the \n stays in the stash, ready for the next call.
-6	Once everything has been returned, the stash is freed and the function returns NULL.
+
+6	Once everything has been returned, the stash is freed 
+	and the function returns NULL.

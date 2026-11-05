@@ -6,7 +6,7 @@
 /*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/30 10:49:36 by ebayle            #+#    #+#             */
-/*   Updated: 2026/11/05 14:43:50 by ebayle           ###   ########.fr       */
+/*   Updated: 2026/11/05 15:07:13 by ebayle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,24 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 	dst[j] = '\0';
 	return (len);
+}
+char	*get_next_line_read(char *buffer, char *tmp)
+{
+	char	*result;
+	int		i;
+	
+	i = 0;
+	while (buffer[i])
+	{
+		if (buffer[i] == '\n')
+		{
+			i++;
+			tmp[i] = buffer[i];
+			result = ft_strlcpy(result, tmp, sizeof(tmp));
+			return (result);
+		}
+		tmp[i] = buffer[i];
+		i++;
+	}
+	return (result);
 }

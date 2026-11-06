@@ -6,7 +6,7 @@
 /*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/30 10:48:48 by ebayle            #+#    #+#             */
-/*   Updated: 2026/11/05 18:44:24 by ebayle           ###   ########.fr       */
+/*   Updated: 2026/11/06 17:18:40 by ebayle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ static char	*read_to_stash(int fd, char *stash)
 	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
 		bytes = -1;
-	while (!ft_strchr(stash, '\n') && bytes > 0)
+	while (!gnl_strchr(stash, '\n') && bytes > 0)
 	{
 		bytes = read(fd, buffer, BUFFER_SIZE);
 		if (bytes > 0)
 		{
 			buffer[bytes] = '\0';
-			stash = ft_strjoin(stash, buffer);
+			stash = gnl_strjoin(stash, buffer);
 			if (stash == NULL)
 				bytes = -1;
 		}
@@ -54,7 +54,7 @@ static char	*extract_line(char *stash)
 	line = malloc(sizeof(char) * (i + 1));
 	if (!line)
 		return (NULL);
-	ft_strlcpy(line, stash, (i + 1));
+	gnl_strlcpy(line, stash, (i + 1));
 	return (line);
 }
 
@@ -71,34 +71,34 @@ static char	*clean_stash(char *stash)
 		free(stash);
 		return (NULL);
 	}
-	new = malloc(sizeof(char) * (ft_strlen(stash) - i));
+	new = malloc(sizeof(char) * (gnl_strlen(stash) - i));
 	if (!new)
 	{
 		free(stash);
 		return (NULL);
 	}
-	ft_strlcpy(new, (stash + 1 + i), (ft_strlen(stash) - i));
+	gnl_strlcpy(new, (stash + 1 + i), (gnl_strlen(stash) - i));
 	free(stash);
 	return (new);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*tmp;
+	static char	*stash;
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	tmp = read_to_stash(fd, tmp);
-	if (tmp == NULL)
+	stash = read_to_stash(fd, stash);
+	if (stash == NULL)
 		return (NULL);
-	line = extract_line(tmp);
+	line = extract_line(stash);
 	if (line == NULL)
 	{
-		free(tmp);
-		tmp = NULL;
+		free(stash);
+		stash = NULL;
 		return (NULL);
 	}
-	tmp = clean_stash(tmp);
+	stash = clean_stash(stash);
 	return (line);
 }

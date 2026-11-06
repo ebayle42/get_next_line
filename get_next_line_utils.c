@@ -6,13 +6,13 @@
 /*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/30 10:49:36 by ebayle            #+#    #+#             */
-/*   Updated: 2026/11/05 17:47:03 by ebayle           ###   ########.fr       */
+/*   Updated: 2026/11/06 17:19:16 by ebayle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *str)
+size_t	gnl_strlen(const char *str)
 {
 	size_t	len;
 
@@ -24,7 +24,7 @@ size_t	ft_strlen(const char *str)
 	return (len);
 }
 
-char	*ft_strjoin(char *s1, char const *s2)
+char	*gnl_strjoin(char *s1, char const *s2)
 {
 	int		i;
 	int		o;
@@ -34,7 +34,7 @@ char	*ft_strjoin(char *s1, char const *s2)
 	o = 0;
 	if (s2 == 0)
 		return (NULL);
-	reponse = malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2)) + 1));
+	reponse = malloc(sizeof(char) * ((gnl_strlen(s1) + gnl_strlen(s2)) + 1));
 	if (!reponse)
 	{
 		free (s1);
@@ -52,7 +52,7 @@ char	*ft_strjoin(char *s1, char const *s2)
 	return (reponse);
 }
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	gnl_strlcpy(char *dst, const char *src, size_t size)
 {
 	char	*s;
 	size_t	i;
@@ -62,7 +62,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	s = (char *)src;
 	i = 0;
 	j = 0;
-	len = ft_strlen(s);
+	len = gnl_strlen(s);
 	if (size == 0)
 		return (len);
 	while (s[i] != '\0' && size - 1 > i)
@@ -75,7 +75,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	return (len);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*gnl_strchr(const char *s, int c)
 {
 	int		i;
 	char	*occ;

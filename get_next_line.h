@@ -6,7 +6,7 @@
 /*   By: ebayle <ebayle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/30 10:49:02 by ebayle            #+#    #+#             */
-/*   Updated: 2026/11/05 17:47:34 by ebayle           ###   ########.fr       */
+/*   Updated: 2026/11/06 17:18:16 by ebayle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # include <unistd.h>	
 
 char	*get_next_line(int fd);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strjoin(char *s1, char const *s2);
-size_t	ft_strlen(const char *str);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+char	*gnl_strchr(const char *s, int c);
+char	*gnl_strjoin(char *s1, char const *s2);
+size_t	gnl_strlen(const char *str);
+size_t	gnl_strlcpy(char *dst, const char *src, size_t size);
 #endif

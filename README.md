@@ -23,10 +23,10 @@ Since `read()` reads `BUFFER_SIZE` bytes at a time, it often reads more than one
 - `clean_stash()`: returns a new string with what follows the first `\n`, frees the old stash, and returns `NULL` if nothing is left.
 
 `get_next_line_utils.c` :
-- `ft_strlen()`: returns the length of `str`, or 0 if `str` is `NULL`.
-- `ft_strjoin()`: returns a new string made of `s1` followed by `s2` and frees `s1`, so the old stash never leaks.
-- `ft_strlcpy()`: copies at most `size - 1` characters from `src` to `dst`, always ends with `\0` and returns the length of `src`.
-- `ft_strchr()`: returns a pointer to the first occurrence of `c` in `s`, or `NULL` if it is not found or `s` is `NULL`.
+- `gnl_strlen()`: returns the length of `str`, or 0 if `str` is `NULL`.
+- `gnl_strjoin()`: returns a new string made of `s1` followed by `s2` and frees `s1`, so the old stash never leaks.
+- `gnl_strlcpy()`: copies at most `size - 1` characters from `src` to `dst`, always ends with `\0` and returns the length of `src`.
+- `gnl_strchr()`: returns a pointer to the first occurrence of `c` in `s`, or `NULL` if it is not found or `s` is `NULL`.
 
 `get_next_line.h` :
 - Defines `BUFFER_SIZE` (1000 by default, can be changed with `-D BUFFER_SIZE=n`), includes `<stdlib.h>` and `<unistd.h>`, and declares the prototypes.
